@@ -1,0 +1,306 @@
+<style>
+  .column { 
+  	<!--
+    170px 
+    
+    width: 100%;
+    -->
+    float: left;
+    padding-bottom: 10px;
+  }
+  .portlet {
+    margin: 0 1em 1em 0;
+    padding: 0.3em;
+  }
+  .portlet-header {
+    padding: 0.2em 0.3em;
+    margin-bottom: 0.5em;
+    position: relative;
+  }
+  .portlet-toggle {
+    position: relative;
+    top: 50%;
+    right: 0;
+    margin-top: -8px;
+  }
+  .portlet-content {
+    padding: 0.4em;
+  }
+  .portlet-placeholder {
+    border: 1px dotted black;
+    margin: 0 1em 1em 0;
+    height: 100px;
+  } 
+</style>
+
+<md-content style="width: 1200px;  max-width:1200px;"> 
+	<md-toolbar class="md-hue-2">
+		<div class="md-toolbar-tools">
+			<h2>Patterns of Life</h2>
+			<span flex></span>
+			<md-button class="md-icon-button" aria-label="bookmark" ng-click="bookmark(pickedObj)">
+				<md-icon md-svg-icon="img/icons/ic_bookmark_24px.svg"></md-icon>
+				<md-tooltip  md-direction="bottom">
+					Bookmark
+				</md-tooltip>
+			</md-button>
+		</div>
+	</md-toolbar>
+    <md-content   layout="column"  >
+			<md-content ng-init='initDD()' layout="row"  > <!--width: 600px;  max-width: 600px; max-height: 900px; -->
+										 		 <div class='column' flex>
+										 		   <md-card class="md-whiteframe-7dp" layout-padding>
+										 		    <md-card-header class="portlet portlet-header">
+											          <md-card-avatar ><!-- <img ng-src="{{getOrgLogo(tObj.assignedTo)}}" style="width:30px;" class="">  <md-icon class="md-avatar-icon" md-svg-icon={{getOrgLogo(tObj.assignedTo)}}></md-icon>   -->
+											             	<!--  <md-button style='min-width:24px;vertical-align:middle;margin-top:0px;margin-left:0px;margin-right:0px' aria-label=""> icon button</md-button>-->
+											             	 <md-icon class="md-avatar-icon" md-svg-icon=""></md-icon>
+											          </md-card-avatar>
+											          <md-card-header-text>
+											            <span class="md-title">POL Category</span>
+											            <span class="md-subhead">POL Category</span> 
+											          </md-card-header-text>
+											        </md-card-header> 
+											       
+											        <md-card-content class="portlet-content">
+											          <p>
+											            Summary for the category.. some form of viz..
+											          </p> 
+											        </md-card-content>
+											         
+											        
+											        <md-card-actions layout="layout-align-end-center layout-row" layout-align="end center">
+												        	<md-progress-linear  md-mode="determinate" value="20"></md-progress-linear>
+												    </md-card-actions> 
+											      </md-card> 
+									 			</div>
+									 			
+									 			
+									 			 <div class='column' flex>
+										 		   <md-card class="md-whiteframe-7dp" layout-padding>
+										 		    <md-card-header class="portlet portlet-header">
+											          <md-card-avatar ><!-- <img ng-src="{{getOrgLogo(tObj.assignedTo)}}" style="width:30px;" class="">  <md-icon class="md-avatar-icon" md-svg-icon={{getOrgLogo(tObj.assignedTo)}}></md-icon>   -->
+											             	<!--  <md-button style='min-width:24px;vertical-align:middle;margin-top:0px;margin-left:0px;margin-right:0px' aria-label=""> icon button</md-button>-->
+											             	 <md-icon class="md-avatar-icon" md-svg-icon=""></md-icon>
+											          </md-card-avatar>
+											          <md-card-header-text>
+											            <span class="md-title">POL Category</span>
+											            <span class="md-subhead">POL Category</span> 
+											          </md-card-header-text>
+											        </md-card-header> 
+											       
+											        <md-card-content class="portlet-content">
+											          <p>
+											            Summary for the category.. some form of viz..
+											          </p> 
+											        </md-card-content>
+											         
+											        
+											        <md-card-actions layout="layout-align-end-center layout-row" layout-align="end center">
+												        	<md-progress-linear  md-mode="determinate" value="20"></md-progress-linear>
+												    </md-card-actions> 
+											      </md-card> 
+									 			</div>
+									 			
+									 			
+									 			
+									 			<div class='column' flex>
+										 		   <md-card class="md-whiteframe-7dp" layout-padding>
+										 		    <md-card-header class="portlet portlet-header">
+											          <md-card-avatar ><!-- <img ng-src="{{getOrgLogo(tObj.assignedTo)}}" style="width:30px;" class="">  <md-icon class="md-avatar-icon" md-svg-icon={{getOrgLogo(tObj.assignedTo)}}></md-icon>   -->
+											             	<!--  <md-button style='min-width:24px;vertical-align:middle;margin-top:0px;margin-left:0px;margin-right:0px' aria-label=""> icon button</md-button>-->
+											             	 <md-icon class="md-avatar-icon" md-svg-icon=""></md-icon>
+											          </md-card-avatar>
+											          <md-card-header-text>
+											            <span class="md-title">POL Category</span>
+											            <span class="md-subhead">POL Category</span> 
+											          </md-card-header-text>
+											        </md-card-header> 
+											       
+											        <md-card-content class="portlet-content">
+											          <p>
+											            Summary for the category.. some form of viz..
+											          </p> 
+											        </md-card-content>
+											         
+											        
+											        <md-card-actions layout="layout-align-end-center layout-row" layout-align="end center">
+												        	<md-progress-linear  md-mode="determinate" value="20"></md-progress-linear>
+												    </md-card-actions> 
+											      </md-card> 
+									 			</div> 
+				</md-content>
+		
+		
+				<md-content ng-init='initDD()' layout="row"  > <!--width: 600px;  max-width: 600px; max-height: 900px; -->
+									 		 <div class='column' flex>
+									 		   <md-card class="md-whiteframe-7dp" layout-padding>
+									 		    <md-card-header class="portlet portlet-header">
+										          <md-card-avatar ><!-- <img ng-src="{{getOrgLogo(tObj.assignedTo)}}" style="width:30px;" class="">  <md-icon class="md-avatar-icon" md-svg-icon={{getOrgLogo(tObj.assignedTo)}}></md-icon>   -->
+										             	<!--  <md-button style='min-width:24px;vertical-align:middle;margin-top:0px;margin-left:0px;margin-right:0px' aria-label=""> icon button</md-button>-->
+										             	 <md-icon class="md-avatar-icon" md-svg-icon=""></md-icon>
+										          </md-card-avatar>
+										          <md-card-header-text>
+										            <span class="md-title">POL Category</span>
+										            <span class="md-subhead">POL Category</span> 
+										          </md-card-header-text>
+										        </md-card-header> 
+										       
+										        <md-card-content class="portlet-content">
+										          <p>
+										            Summary for the category.. some form of viz..
+										          </p> 
+										        </md-card-content>
+										         
+										        
+										        <md-card-actions layout="layout-align-end-center layout-row" layout-align="end center">
+											        	<md-progress-linear  md-mode="determinate" value="20"></md-progress-linear>
+											    </md-card-actions> 
+										      </md-card> 
+								 			</div>
+								 			
+								 			
+								 			 <div class='column' flex>
+									 		   <md-card class="md-whiteframe-7dp" layout-padding>
+									 		    <md-card-header class="portlet portlet-header">
+										          <md-card-avatar ><!-- <img ng-src="{{getOrgLogo(tObj.assignedTo)}}" style="width:30px;" class="">  <md-icon class="md-avatar-icon" md-svg-icon={{getOrgLogo(tObj.assignedTo)}}></md-icon>   -->
+										             	<!--  <md-button style='min-width:24px;vertical-align:middle;margin-top:0px;margin-left:0px;margin-right:0px' aria-label=""> icon button</md-button>-->
+										             	 <md-icon class="md-avatar-icon" md-svg-icon=""></md-icon>
+										          </md-card-avatar>
+										          <md-card-header-text>
+										            <span class="md-title">POL Category</span>
+										            <span class="md-subhead">POL Category</span> 
+										          </md-card-header-text>
+										        </md-card-header> 
+										       
+										        <md-card-content class="portlet-content">
+										          <p>
+										            Summary for the category.. some form of viz..
+										          </p> 
+										        </md-card-content>
+										         
+										        
+										        <md-card-actions layout="layout-align-end-center layout-row" layout-align="end center">
+											        	<md-progress-linear  md-mode="determinate" value="20"></md-progress-linear>
+											    </md-card-actions> 
+										      </md-card> 
+								 			</div>
+								 			
+								 			
+								 			
+								 			<div class='column' flex>
+									 		   <md-card class="md-whiteframe-7dp" layout-padding>
+									 		    <md-card-header class="portlet portlet-header">
+										          <md-card-avatar ><!-- <img ng-src="{{getOrgLogo(tObj.assignedTo)}}" style="width:30px;" class="">  <md-icon class="md-avatar-icon" md-svg-icon={{getOrgLogo(tObj.assignedTo)}}></md-icon>   -->
+										             	<!--  <md-button style='min-width:24px;vertical-align:middle;margin-top:0px;margin-left:0px;margin-right:0px' aria-label=""> icon button</md-button>-->
+										             	 <md-icon class="md-avatar-icon" md-svg-icon=""></md-icon>
+										          </md-card-avatar>
+										          <md-card-header-text>
+										            <span class="md-title">POL Category</span>
+										            <span class="md-subhead">POL Category</span> 
+										          </md-card-header-text>
+										        </md-card-header> 
+										       
+										        <md-card-content class="portlet-content">
+										          <p>
+										            Summary for the category.. some form of viz..
+										          </p> 
+										        </md-card-content>
+										         
+										        
+										        <md-card-actions layout="layout-align-end-center layout-row" layout-align="end center">
+											        	<md-progress-linear  md-mode="determinate" value="20"></md-progress-linear>
+											    </md-card-actions> 
+										      </md-card> 
+								 			</div> 
+			</md-content>
+		
+			<md-content ng-init='initDD()' layout="row"  > <!--width: 600px;  max-width: 600px; max-height: 900px; -->
+									 		 <div class='column' flex>
+									 		   <md-card class="md-whiteframe-7dp" layout-padding>
+									 		    <md-card-header class="portlet portlet-header">
+										          <md-card-avatar ><!-- <img ng-src="{{getOrgLogo(tObj.assignedTo)}}" style="width:30px;" class="">  <md-icon class="md-avatar-icon" md-svg-icon={{getOrgLogo(tObj.assignedTo)}}></md-icon>   -->
+										             	<!--  <md-button style='min-width:24px;vertical-align:middle;margin-top:0px;margin-left:0px;margin-right:0px' aria-label=""> icon button</md-button>-->
+										             	 <md-icon class="md-avatar-icon" md-svg-icon=""></md-icon>
+										          </md-card-avatar>
+										          <md-card-header-text>
+										            <span class="md-title">POL Category</span>
+										            <span class="md-subhead">POL Category</span> 
+										          </md-card-header-text>
+										        </md-card-header> 
+										       
+										        <md-card-content class="portlet-content">
+										          <p>
+										            Summary for the category.. some form of viz..
+										          </p> 
+										        </md-card-content>
+										         
+										        
+										        <md-card-actions layout="layout-align-end-center layout-row" layout-align="end center">
+											        	<md-progress-linear  md-mode="determinate" value="20"></md-progress-linear>
+											    </md-card-actions> 
+										      </md-card> 
+								 			</div>
+								 			
+								 			
+								 			 <div class='column' flex>
+									 		   <md-card class="md-whiteframe-7dp" layout-padding>
+									 		    <md-card-header class="portlet portlet-header">
+										          <md-card-avatar ><!-- <img ng-src="{{getOrgLogo(tObj.assignedTo)}}" style="width:30px;" class="">  <md-icon class="md-avatar-icon" md-svg-icon={{getOrgLogo(tObj.assignedTo)}}></md-icon>   -->
+										             	<!--  <md-button style='min-width:24px;vertical-align:middle;margin-top:0px;margin-left:0px;margin-right:0px' aria-label=""> icon button</md-button>-->
+										             	 <md-icon class="md-avatar-icon" md-svg-icon=""></md-icon>
+										          </md-card-avatar>
+										          <md-card-header-text>
+										            <span class="md-title">POL Category</span>
+										            <span class="md-subhead">POL Category</span> 
+										          </md-card-header-text>
+										        </md-card-header> 
+										       
+										        <md-card-content class="portlet-content">
+										          <p>
+										            Summary for the category.. some form of viz..
+										          </p> 
+										        </md-card-content>
+										         
+										        
+										        <md-card-actions layout="layout-align-end-center layout-row" layout-align="end center">
+											        	<md-progress-linear  md-mode="determinate" value="20"></md-progress-linear>
+											    </md-card-actions> 
+										      </md-card> 
+								 			</div>
+								 			
+								 			
+								 			
+								 			<div class='column' flex>
+									 		   <md-card class="md-whiteframe-7dp" layout-padding>
+									 		    <md-card-header class="portlet portlet-header">
+										          <md-card-avatar ><!-- <img ng-src="{{getOrgLogo(tObj.assignedTo)}}" style="width:30px;" class="">  <md-icon class="md-avatar-icon" md-svg-icon={{getOrgLogo(tObj.assignedTo)}}></md-icon>   -->
+										             	<!--  <md-button style='min-width:24px;vertical-align:middle;margin-top:0px;margin-left:0px;margin-right:0px' aria-label=""> icon button</md-button>-->
+										             	 <md-icon class="md-avatar-icon" md-svg-icon=""></md-icon>
+										          </md-card-avatar>
+										          <md-card-header-text>
+										            <span class="md-title">POL Category</span>
+										            <span class="md-subhead">POL Category</span> 
+										          </md-card-header-text>
+										        </md-card-header> 
+										       
+										        <md-card-content class="portlet-content">
+										          <p>
+										            Summary for the category.. some form of viz..
+										          </p> 
+										        </md-card-content>
+										         
+										        
+										        <md-card-actions layout="layout-align-end-center layout-row" layout-align="end center">
+											        	<md-progress-linear  md-mode="determinate" value="20"></md-progress-linear>
+											    </md-card-actions> 
+										      </md-card> 
+								 			</div> 
+			</md-content>
+	</md-content>
+	<div class="md-actions" layout="layout-align-end-center layout-row" layout-align="end center">
+		<md-button class="md-primary md-hue-2" aria-label="Close" ng-click="closeDialog()">
+			Close			
+		</md-button>	
+	</div>
+ 
+</md-content>

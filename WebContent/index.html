@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app='odApp'>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+         <!-- Angular Material CSS using GitCDN to load directly from `bower-material/master` -->
+    	<link rel="stylesheet" href="css/angular-material.css">
+	    <!-- Angular Material Dependencies -->
+	    <script src="js/lib/angular.js"></script>
+	    <script src="js/lib/angular-animate.js"></script>
+	    <script src="js/lib/angular-aria.js"></script>
+	
+	    <!-- Angular Material Javascript using GitCDN to load directly from `bower-material/master` -->
+	    <script src="js/lib/angular-material.js"></script>
+		<script src="js/lib/jquery.min.js"></script>
+		<script src="js/lib/jquery-ui.min.js"></script>  
+		
+        <link rel="stylesheet" href="js/Cesium/Widgets/widgets.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/site.css">
+        <!--  <script src="js/jquery-2.1.4.min.js"></script> -->
+        
+        <script src="js/Cesium/Cesium.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/_run.js"></script>
+       
+        <style> 
+        	md-content{
+        		overflow:hidden;
+        	}
+        	md-toolbar .tb{
+        		width:320px;
+        	}
+        	md-toolbar .innerToolbar{
+        		width:100%;
+        		height:40px;
+        	}
+        	md-list-item .md-list-item-inner{
+        		min-height:40px;
+        	}
+        	.md-tab{
+        		font-size:12px;
+        	}
+        	
+        	.png-icon{
+			    margin: 0px auto auto;
+			    padding: 0;
+			    display: inline-block;
+			    background-repeat: no-repeat no-repeat;
+			    pointer-events: none;
+			}
+        </style>
+       	
+    </head>
+    <body ng-controller="cesiumController">
+        <div id="cesiumContainer"></div>  
+        <md-button class="md-fab md-primary md-mini md-hue-2" ng-click="toggleDataPanel()" aria-label="More">
+	       <md-icon md-svg-icon="img/icons/ic_menu_white_48px.svg"></md-icon>
+	    </md-button>
+	        
+	     <!-- Side Nav -->	
+	    <section layout="row" flex>
+	    <md-sidenav class="md-sidenav-left md-whiteframe-z2 md-hue-2" md-component-id="dataPanel"  > <!-- md-is-locked-open="true"  -->
+	      <md-toolbar class='md-hue-2 tb'>
+		      <div class="md-toolbar-tools">
+		      <img class="png-icon" src="img/icons/icon5.png" style="margin-top:12px;margin-right:7px;width: 66px; height: 36px;"> 
+		       	<!--  <md-icon md-svg-src="img/icons/logo.png" style="margin-right:5px;width:36px;height:36px;"></md-icon>-->
+		        <h4 class='md-subhead'> 
+		           Open Data Analytics  
+		        </h4> 
+		        <span flex></span>
+		        <md-button ng-click="closeDataPanel()" class="md-icon-button md-primary"  >
+			        <md-icon md-svg-icon="img/icons/ic_close_white_36px.svg" style="margin-right:15px;width:24px;height:24px;"></md-icon>
+		        </md-button>
+		      </div>
+		  </md-toolbar>
+	      <md-content style="overflow: hidden;">
+	          <md-tabs md-dynamic-height md-border-bottom>
+			      <md-tab label="Data">
+			        <md-content  ng-repeat="layer in layers" >
+			        	  <md-toolbar   class='md-hue-2' style="width:100%;min-height:40px" > 
+			        	     <div class="md-toolbar-tools innerToolbar"> 
+						       	<!--
+						       	 <img class="png-icon" src="img/icons/icon3.png" style="margin-top:12px;margin-right:7px;width: 66px; height: 36px;">  
+						       	<md-icon md-svg-src="img/icons/logo.png" style="margin-right:5px;width:36px;height:36px;"></md-icon>
+						       	-->
+						        <h4 class='md-body-2'> 
+						            {{layer.title}}
+						        </h4>
+						         <span flex></span>
+						        <md-button ng-click="toggleLayer(layer)" class="md-icon-button md-primary"  >
+							        <md-icon md-svg-icon={{layer.img}} style="width:24px;height:24px;"></md-icon>
+						        </md-button>  
+						      </div>
+			        	  </md-toolbar> 
+			        	  <md-content  class="animate-show" ng-show="layer.clicked=='true'">
+			        	  		<md-list style='padding:0px'    ng-cloak>
+							  <!-- <md-subheader class="md-no-sticky">Single Action Checkboxes</md-subheader>-->
+							  <md-list-item style='height:40px'  ng-repeat="lay in layer.layList">
+							    <p flex> {{lay}}  </p> 
+						        <md-checkbox ng-click="loadData(lay)" style='margin-right:0px' class="md-primary md-hue-2" ></md-checkbox>
+							  </md-list-item>
+						</md-list>
+			        	  </md-content>
+			        </md-content>
+			      </md-tab>
+			      <md-tab label="Patterns Of Life">
+			        <md-content>
+						<!--  group by location.. -->
+			        	<md-toolbar class='md-hue-2'  style="width:100%;min-height:40px" >
+			        	  	<div class="md-toolbar-tools innerToolbar"> 
+						       	<!--
+						       	 <img class="png-icon" src="img/icons/icon3.png" style="margin-top:12px;margin-right:7px;width: 66px; height: 36px;">  
+						       	<md-icon md-svg-src="img/icons/logo.png" style="margin-right:5px;width:36px;height:36px;"></md-icon>
+						       	-->
+						        <h4 class='md-body-2'> 
+						            POL (Grouped by Location)
+						        </h4>
+						         <span flex></span>
+						      </div>
+			        	  </md-toolbar>	
+			        	 <md-list style='padding:0px' ng-cloak>
+						  <!-- <md-subheader class="md-no-sticky">Single Action Checkboxes</md-subheader>-->
+						  <md-list-item  style='max-height:40px'  ng-click="togglePOL($event)" >
+						    <p>Patterns of Life Map Layer</p>
+						    <md-switch class="md-primary md-hue-2" ng-change="togglePOL($event)" ng-model='togglePOL_switch' ></md-switch> <!-- ng-model="" -->
+						  </md-list-item>
+						</md-list>
+						
+						<!--  group by category.. -->
+						<md-toolbar class='md-hue-2'  style="width:100%;min-height:40px" >
+			        	  	<div class="md-toolbar-tools innerToolbar"> 
+						       	<!--
+						       	 <img class="png-icon" src="img/icons/icon3.png" style="margin-top:12px;margin-right:7px;width: 66px; height: 36px;">  
+						       	<md-icon md-svg-src="img/icons/logo.png" style="margin-right:5px;width:36px;height:36px;"></md-icon>
+						       	-->
+						        <h4 class='md-body-2'> 
+						            POL (Grouped by Pattern)
+						        </h4>
+						         <span flex></span>
+						      </div>
+			        	  </md-toolbar>	
+			        	<md-list style='padding:0px' ng-cloak>
+						  <!-- <md-subheader class="md-no-sticky">Single Action Checkboxes</md-subheader>-->
+						  <md-list-item style='height:40px' ng-repeat="pattern in patterns">
+						    <p> {{pattern.title}}  </p>
+						    <md-switch class="md-primary md-hue-2" ></md-switch>
+						  </md-list-item>
+						</md-list>
+			        </md-content>
+			      </md-tab>
+		      </md-tabs>
+	      </md-content>
+	    </md-sidenav>
+		<!-- Side Nav -->	
+		
+		
+		<!--  
+        <md-button class="md-raised md-primary">Primary</md-button>
+        <input type="button" class="uiButton" value="shapes & volumes" onclick='app.shapesVolumes()'/>
+        <input type="button" class="uiButton" value="M & M" onclick='app.markersModel()'/>
+        <input type="button" class="uiButton" value="LOADS OF DATA!" onclick='app.dataSources()'/> 
+        <input type="button" class="uiButton" value="picking" onclick='app.picking()'/>
+        <input type="button" class="uiButton" value="Toggle" onclick='app.toggle()'/> 
+        <div id="sidePanel1" class="sidePanel"> 
+        </div>
+         -->
+        
+        
+    </body>
+</html>
